@@ -1,0 +1,204 @@
+@import "reset.scss";
+@import "normalize.scss";
+
+.container {
+    padding: 50px 100px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-promo {
+    padding: 15px 0;
+    //width: 100%;
+    background: url("../img/top-promo-mouse.png")  no-repeat;
+    background-size: 100% 100%;
+    //height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    h5{
+        font-family: ProximaNova;
+    }
+}
+
+.navbar {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #150942;
+    color: #ffffff;
+    padding: 0 5%;
+    
+    .brand-logo {
+      
+    }
+    
+    .store-location {
+      
+    }
+    
+    .sale-options {
+      
+    }
+    
+    .phone-callback {
+      
+    }
+    
+    .basket {
+      
+    }
+    
+    .account-info {
+      
+    }
+}
+
+.nav {
+    padding: 0 5%;
+    background: #1b1d61;
+    color: #fefefe;
+}
+.nav ul {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jumbo {
+    display: flex;
+    flex-direction: row;
+    
+    .slider {
+        display: flex;
+        flex-direction: row;
+        background: #f5f5f5;
+        border: 1px solid red;
+        width: 70%;
+    }
+
+    .jumbo-promo {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.recommended {
+    background: #f3f3f6;
+    .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .item-card {
+            background: #fff;
+            padding: 15px;
+            width: 250px;
+            .discount-bage {
+                color: white;
+                background: #5dd712;
+                width: 60px;
+                border-radius: 5px;
+                text-align: center;
+                padding: 10px 0;
+                position: relative;
+                left: 30px;
+                right: 30px;
+            }
+            .item-description {
+
+            }
+            .stars {
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.partners {
+    background: #150942;
+    color: #fff;
+    h2 {
+        font-size: 36px;
+        font-family: "ProximaNova";
+        text-transform: uppercase;
+    }
+    .partners-slider {
+        justify-content: space-between;
+    }
+    .partner-logo {
+        background: #fff;
+        padding: 45px;
+    }
+}
+
+.promotions {
+    height: 442px;
+    background: #150942;
+    color: #fff;
+    .promo-1 {
+        background: #27ae61
+    }
+    .promo-2 {
+        background: #368f8d
+    }
+    .promo-3 {
+        background: #355482
+    }
+    .promo-4 {
+        background: #ff526b
+    }
+
+}
+
+.news-reviews {
+    background: #150942;
+    .news {
+        justify-content: space-between;
+        .news-card {
+            background: #fff;
+            border-radius: 15px;
+            margin: 20px;
+            h4 {
+                color: #355482;
+            }
+            .news-description {
+                padding: 45px;
+            }
+        }
+    }
+    .news-button {
+        text-decoration: none;
+        color: #fff;
+        border: 2px solid transparent;
+        border-image: linear-gradient(to bottom, #f93578 0%, #f24a3e 100%);
+        border-image-slice: 1;
+        padding: 10px;
+    }
+}
+
+.our-shops {
+    background: #f3f3f6;
+    .shops {
+        justify-content: space-between;
+    }
+    .shop {
+        width: 317px
+    }
+}
+
+footer {
+    height: 442px;
+    background: #363636;
+}

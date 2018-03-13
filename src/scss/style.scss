@@ -1,10 +1,19 @@
 @import "reset.scss";
 @import "normalize.scss";
+@import "fonts.scss";
 
+body {
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: Proxima Nova Regular;
+}
 .container {
     padding: 50px 100px;
 }
 
+img {
+    max-width: 100%;
+}
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -17,15 +26,20 @@
 
 .top-promo {
     padding: 15px 0;
-    //width: 100%;
     background: url("../img/top-promo-mouse.png")  no-repeat;
     background-size: 100% 100%;
-    //height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    h5{
-        font-family: ProximaNova;
+    h5 {
+        color: gray;
+    }
+    .pink {
+        color: rgb(255, 0, 200);
+    }
+    span{
+        font-family: Proxima Nova Bold;
+        color: rgb(0, 110, 255);
     }
 }
 
@@ -37,30 +51,33 @@
     justify-content: space-between;
     background-color: #150942;
     color: #ffffff;
-    padding: 0 5%;
-    
+    padding: 20px 30px;
+    a {
+        //text-decoration: none;
+        color: ghostwhite;
+    }
     .brand-logo {
-      
+      margin-right: 15px;
     }
     
     .store-location {
-      
+      flex: 1;
     }
     
     .sale-options {
-      
+      flex: 1;
     }
     
     .phone-callback {
-      
+        flex: 1;
     }
     
     .basket {
-      
+        flex: 1;
     }
     
     .account-info {
-      
+        flex: 1;
     }
 }
 
@@ -174,7 +191,7 @@
                 color: #355482;
             }
             .news-description {
-                padding: 45px;
+                padding: 20px;
             }
         }
     }

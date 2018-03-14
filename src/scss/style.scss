@@ -1,24 +1,32 @@
 @import "normalize.scss";
 @import "fonts.scss";
 @import "fontawesome/fontawesome.scss";
-
+#pixel {
+    position:absolute;
+    opacity:0.2;
+    width: 100%;
+    z-index:1
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    box-sizing: border-box;
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     font-family: "Proxima Nova Regular", sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     background: #f3f3f6;
+    background-image: url()
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 .container {
-    padding: 60px 6.8%;
+    padding: 0 6.8%;
 }
 
 img {
@@ -33,49 +41,45 @@ img {
     display: flex;
     flex-direction: column;
 }
-header {
-    display: flex;
-    flex-direction: column;
-}
 
 .top-promo {
-    padding: 15px 0;
+    padding: 10px 0;
     background: url("../img/top-promo-mouse.png")  no-repeat;
     background-size: 100% 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    h5 {
+    text-align: center;
+    p {
+        padding-left: 50px;
         color: gray;
-
-    }
-    .pink {
-        color: rgb(255, 0, 200);
-    }
-    span{
-        font-family: "Proxima Nova Bold";
-        color: rgb(0, 110, 255);
+        font-size: 1.3rem;    
+        span{
+            font-family: "Proxima Nova Bold";
+            color: rgb(0, 110, 255);
+        }
+        .pink {
+            color: rgb(255, 0, 200);
+        }
     }
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     color: #ffffff;
     background-color: #150942;
-    padding: 20px 4.75% 20px 4.75%;
+    padding: 14px 4.75%;
     line-height: 1.5em;
     a {
-        color: ghostwhite;
+        color: #fff;
         display: block;
     }
     .brand-logo {
-        flex: 4;
+        flex: 2;
     }
     
     .store-location {
-        flex: 4;
+        flex: 2;
         display: flex;
         span {
             margin-right: 5px;
@@ -83,9 +87,10 @@ header {
     }
     
     .sale-options {
-        flex: 3.2;
+        flex: 1.5;
         text-transform: uppercase;
         font-weight: bold;
+        font-size: 1rem;
         a {
             text-decoration-color: #504771;
             font-size: 80%;
@@ -93,8 +98,9 @@ header {
     }
     
     .phone-callback {
-        flex: 3.6;
+        flex: 2.5;
         text-align: center;
+        align-self: center;
         .phone {
             font-size: 120%;
             text-decoration: none;
@@ -106,8 +112,10 @@ header {
     }
     
     .basket {
-        flex: 1.6;
+        flex: 1.5;
         z-index: 2;
+        display: flex;
+        align-self: flex-end;
         a {
             color: #c0e1f9;
             text-decoration: none;
@@ -118,19 +126,19 @@ header {
             background: rgb(255, 0, 200);
             color: #fff;
             border-radius: 50%; 
-            display: block;
             line-height: 1.2;
-            position: relative;
-            left: 30px;
-            top: 10px;
             z-index: -1;
             text-align: center;
+            position: relative;
+            left: -25px;
+            top: -10px;
         }
     }
     
     .account-info {
-        flex: 4;
+        flex: 2.5;
         color: #c0e1f9;
+        justify-self: flex-end;
         a {
             text-decoration: none;
         }
@@ -141,23 +149,24 @@ header {
 }
 
 .nav {
-    padding: 0 5%;
+    padding: 0 6% 0 5%;
     background: #1b1d61;
     color: #fefefe;
 }
 .nav ul {
-    height: 45px;
+    height: 35px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: stretch;
     a {
         text-decoration: none;
         color: #fff;
-        font-family: Proxima Nova Bold;
+        font-family: "Proxima Nova Bold", sans-serif;
     }
     li {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex: auto;
     }
@@ -167,6 +176,11 @@ header {
     li:last-child {
         background: #045aae;
     }
+    .hamburger-icon {
+        position: relative;
+        top: 2px;
+        right: 3px;
+    }
 }
 
 .jumbo {
@@ -174,53 +188,60 @@ header {
     flex-direction: row;
     align-items: stretch;
     .slider {
-        flex: 1.73;
+        flex: 1.8;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
         background: #f7f7f7;
-        padding: 50px;
-    }
-    .slide-image {
-
-    }
-    .slide-description {
-        display: flex;
-        flex-direction: column;
-        span {
-            color: #f93676;
-            font-size: 1.4rem;
+        .slide-image {
+            flex: 1.3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        h1 {
-            color: #718097;
-            font-size: 3rem;
-            font-family: "Proxima Nova Bold";
-            font-weight: bold;
-        }
-        p {
-            color: #aeb6c2;
-            font-size: 1.6rem;
-        }
-        strong {
-            color: #009ae2;
-        }
-        .buttons {
+        .slide-description {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
             justify-content: flex-start;
-        }
-        a {
-            text-decoration: none;
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-transform: uppercase;
-        }
-        .button-buy {
-            background: linear-gradient(#fa3579, #f24a3d);
-            color: #fff;
-        }
-        .button-details {
-            color: #009ae2;
-            border: 2px solid #009ae2;
+            align-items: flex-start;
+            span {
+                padding-top: 55px;
+                color: #f93676;
+                font-size: 1.5rem;
+            }
+            h1 {
+                color: #718097;
+                font-size: 3.5rem;
+                font-family: "Proxima Nova Bold";
+                font-weight: bold;
+            }
+            p {
+                margin: 10px 0 0 10px;
+                color: #aeb6c2;
+                font-size: 1.7rem;
+                strong {
+                    color: #009ae2;
+                }
+            }
+            .buttons {
+                margin-top: 45px;
+                justify-content: flex-start;
+                a {
+                    text-decoration: none;
+                    padding: 10px 40px;
+                    border-radius: 50px;
+                    text-transform: uppercase;
+                }
+                .button-buy {
+                    background: linear-gradient(#fa3579, #f24a3d);
+                    color: #fff;
+                    margin-right: 25px;
+                }
+                .button-details {
+                    color: #009ae2;
+                    border: 2px solid #009ae2;
+                }
+            }
         }
     }
 
@@ -245,14 +266,14 @@ header {
         }
         .jumbo-discount {
             background-color: #e7eaf1;
-            background-image: url("/img/discount-cart.png");
+            background-image: url("../img/discount-cart.png");
             background-repeat: no-repeat;
             background-position: 150% 200%; 
             background-size: 80%;
         }
         .jumbo-gifts {
             background-color: #e7eaf1;
-            background-image: url("/img/gtx-760.png");
+            background-image: url("../img/gtx-760.png");
             background-repeat: no-repeat;
             background-position: 300% 100%; 
             background-size: 90%;
@@ -261,13 +282,11 @@ header {
 }
 
 .recommended {
-    border: 1px solid;
-    background: #f3f3f6;
     h2 {
         color: #718097;
         text-transform: uppercase;
         font-size: 2.25rem;
-        font-family: 'Proxima Nova Bold';
+        font-family: "Proxima Nova Bold";
         margin-bottom: 20px;
     }
     .items {
@@ -372,7 +391,7 @@ header {
     color: #fff;
     h2 {
         font-size: 36px;
-        font-family: "ProximaNova";
+        font-family: "Proxima Nova Bold";
         text-transform: uppercase;
     }
     .partners-slider {

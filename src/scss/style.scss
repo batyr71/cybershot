@@ -1,14 +1,24 @@
-@import "reset.scss";
 @import "normalize.scss";
 @import "fonts.scss";
+@import "fontawesome/fontawesome.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     box-sizing: border-box;
-    font-size: 100%;
-    font-family: Proxima Nova Regular;
+    font-family: "Proxima Nova Regular", sans-serif;
+    font-size: 16px;
+    background: #f3f3f6;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 .container {
-    padding: 50px 100px;
+    padding: 60px 6.8%;
 }
 
 img {
@@ -23,6 +33,10 @@ img {
     display: flex;
     flex-direction: column;
 }
+header {
+    display: flex;
+    flex-direction: column;
+}
 
 .top-promo {
     padding: 15px 0;
@@ -33,51 +47,96 @@ img {
     justify-content: space-around;
     h5 {
         color: gray;
+
     }
     .pink {
         color: rgb(255, 0, 200);
     }
     span{
-        font-family: Proxima Nova Bold;
+        font-family: "Proxima Nova Bold";
         color: rgb(0, 110, 255);
     }
 }
 
 .navbar {
-    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    background-color: #150942;
     color: #ffffff;
-    padding: 20px 30px;
+    background-color: #150942;
+    padding: 20px 4.75% 20px 4.75%;
+    line-height: 1.5em;
     a {
-        //text-decoration: none;
         color: ghostwhite;
+        display: block;
     }
     .brand-logo {
-      margin-right: 15px;
+        flex: 4;
     }
     
     .store-location {
-      flex: 1;
+        flex: 4;
+        display: flex;
+        span {
+            margin-right: 5px;
+        }
     }
     
     .sale-options {
-      flex: 1;
+        flex: 3.2;
+        text-transform: uppercase;
+        font-weight: bold;
+        a {
+            text-decoration-color: #504771;
+            font-size: 80%;
+        }
     }
     
     .phone-callback {
-        flex: 1;
+        flex: 3.6;
+        text-align: center;
+        .phone {
+            font-size: 120%;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .callback {
+            color: #c0e1f9;
+        }
     }
     
     .basket {
-        flex: 1;
+        flex: 1.6;
+        z-index: 2;
+        a {
+            color: #c0e1f9;
+            text-decoration: none;
+        }
+        .items-count {
+            height: 20px;
+            width: 20px;
+            background: rgb(255, 0, 200);
+            color: #fff;
+            border-radius: 50%; 
+            display: block;
+            line-height: 1.2;
+            position: relative;
+            left: 30px;
+            top: 10px;
+            z-index: -1;
+            text-align: center;
+        }
     }
     
     .account-info {
-        flex: 1;
+        flex: 4;
+        color: #c0e1f9;
+        a {
+            text-decoration: none;
+        }
+        span {
+            color: #fff;
+        }
     }
 }
 
@@ -90,54 +149,219 @@ img {
     height: 45px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-items: stretch;
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-family: Proxima Nova Bold;
+    }
+    li {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex: auto;
+    }
+    li:first-child {
+        background: linear-gradient(#fa3579, #f24a3d);
+    }
+    li:last-child {
+        background: #045aae;
+    }
 }
 
 .jumbo {
     display: flex;
     flex-direction: row;
-    
+    align-items: stretch;
     .slider {
+        flex: 1.73;
         display: flex;
         flex-direction: row;
-        background: #f5f5f5;
-        border: 1px solid red;
-        width: 70%;
+        justify-content: center;
+        align-items: center;
+        background: #f7f7f7;
+        padding: 50px;
+    }
+    .slide-image {
+
+    }
+    .slide-description {
+        display: flex;
+        flex-direction: column;
+        span {
+            color: #f93676;
+            font-size: 1.4rem;
+        }
+        h1 {
+            color: #718097;
+            font-size: 3rem;
+            font-family: "Proxima Nova Bold";
+            font-weight: bold;
+        }
+        p {
+            color: #aeb6c2;
+            font-size: 1.6rem;
+        }
+        strong {
+            color: #009ae2;
+        }
+        .buttons {
+            justify-content: flex-start;
+        }
+        a {
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+        .button-buy {
+            background: linear-gradient(#fa3579, #f24a3d);
+            color: #fff;
+        }
+        .button-details {
+            color: #009ae2;
+            border: 2px solid #009ae2;
+        }
     }
 
     .jumbo-promo {
+        flex: 1;
         display: flex;
         flex-direction: column;
+        h2 {
+            color: #f93676;
+            text-transform: uppercase;
+        }
+        h3 {
+            color: #718097;
+        }
+        div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+        .jumbo-discount {
+            background-color: #e7eaf1;
+            background-image: url("/img/discount-cart.png");
+            background-repeat: no-repeat;
+            background-position: 150% 200%; 
+            background-size: 80%;
+        }
+        .jumbo-gifts {
+            background-color: #e7eaf1;
+            background-image: url("/img/gtx-760.png");
+            background-repeat: no-repeat;
+            background-position: 300% 100%; 
+            background-size: 90%;
+        }
     }
 }
 
 .recommended {
+    border: 1px solid;
     background: #f3f3f6;
+    h2 {
+        color: #718097;
+        text-transform: uppercase;
+        font-size: 2.25rem;
+        font-family: 'Proxima Nova Bold';
+        margin-bottom: 20px;
+    }
     .items {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         .item-card {
+            box-shadow: 0 0 3px grey;
             background: #fff;
-            padding: 15px;
-            width: 250px;
+            width: 19%;
+            border-radius: 10px;
+            .card-head {
+                padding: 15px;
+            }
             .discount-bage {
                 color: white;
                 background: #5dd712;
-                width: 60px;
+                width: 28%;
                 border-radius: 5px;
                 text-align: center;
                 padding: 10px 0;
                 position: relative;
-                left: 30px;
-                right: 30px;
+                left: 0px;
+                top: 0px;
             }
             .item-description {
-
+                font-size: 1rem;
+                color: rgb(49, 49, 49);
+                line-height: 1.25;
             }
             .stars {
+                padding: 5px 15px;
+                box-shadow: 0 0 3px grey;
                 justify-content: space-between;
+                font-size: 0.725rem;
+                color: rgb(204, 204, 204);
+                .star{
+                    font-size: 1rem;
+                    color: rgb(214, 214, 3);
+                }
+                span {
+                    font-size: 1.12rem;
+                    color: black;
+                }
+            }
+            .price {
+                display: flex;
+                padding: 5px 15px;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                .price-info {
+                    width: 30%;
+                    .before{
+                        color: #009ae2;
+                        text-decoration: line-through;
+                    }
+                    .now {
+                        color: #636363;
+                        font-size: 1.2rem;
+                        font-family: 'Proxima Nova Bold';
+                    }
+                    .discounted {
+                        background: #009ae2;
+                        color: #fff; 
+                    }
+                    .economy {
+                        font-size: 0.7rem;
+                    }
+                }
+                .item-info {
+                    width: 60%;
+                    padding: 5px 0;
+                    a {
+                        text-decoration: none;
+                        font-size: 0.8rem;
+                    }
+                    .addtocard {
+                        max-height: 40px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        background: linear-gradient(#fa3579, #f24a3d);
+                        color: #fff;
+                        img {
+                            width: 25%;
+                        }
+                    }
+                    .item-more-detail {
+                        color: #009ae2;
+                    }
+                }
             }
         }
     }

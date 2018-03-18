@@ -27,12 +27,9 @@
 
 body{
     height: 100%;
-    display: flex;
-    flex-direction: column;
     font-family: "Proxima Nova Regular", sans-serif;
     font-size: 1em;
     background: #f3f3f6;
-    background-image: url()
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -41,7 +38,10 @@ li {
     list-style: none;
 }
 .container {
-    padding: 50px 6.8%;
+    padding: 50px 106px;
+    @media screen and (max-width: 768px) {
+        padding: 50px 5%;
+    }
 }
 
 img {
@@ -56,6 +56,9 @@ img {
     display: flex;
     flex-direction: column;
 }
+
+
+
 
 .top-promo {
     padding: 13px 0;
@@ -249,49 +252,48 @@ img {
 }
 
 .jumbo {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    margin-bottom: 40px;
-    .slider {
-        flex: 1.7;
-        display: flex;
-        flex-direction: row;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 992fr 575fr;
+    grid-template-rows: 440px;
+    @media screen and (max-width: 768px) {
+        grid-template-rows: auto;
+        grid-template-columns: 100%;  
+    }
+
+    .jumbo-slider {
+        display: grid;
+        grid-template-columns: 4fr 6fr;
+        @media screen and (max-width: 360px) {
+            grid-template-columns: 100%;  
+            grid-template-rows: auto;
+        }
+        align-items: center;
         background: #f7f7f7;
         box-shadow: 3px 3px 5px -1px rgba(168,168,168,1);
-        .slide-image {
-            padding-top: 20px;
-            flex: 1.3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
         .slide-description {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
+            align-self: start;
+            padding-top: 55px;
             span {
-                padding-top: 55px;
                 color: #f93676;
                 font-size: 1.5rem;
             }
             h1 {
                 color: #718097;
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-family: "Proxima Nova Bold";
                 font-weight: bold;
             }
             p {
                 margin: 15px 0 0 10px;
                 color: #aeb6c2;
-                font-size: 2rem;
+                font-size: 200%;
                 strong {
                     color: #009ae2;
                 }
             }
             .buttons {
+                display: flex;
                 margin-top: 45px;
                 justify-content: flex-start;
                 a {
@@ -312,70 +314,70 @@ img {
             }
         }
     }
-
+   
     .jumbo-promo {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        margin-left: 10px;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        @media screen and (max-width: 768px) {
+            grid-template-rows: repeat(2, 300px);
+        }
+        grid-row-gap: 10px;
+        padding-right: 20px;
         h2 {
             color: #f93676;
             text-transform: uppercase;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
         }
         h3 {
             color: #718097;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
         }
-        div {
-            flex: 1;
+        .jumbo-discount, .jumbo-gifts  {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
             padding-left: 30px;
-            margin-bottom: 5px;
-            //background: linear-gradient(#fa3579, #f24a3d);
         }
         .jumbo-discount {
             background-color: #e7eaf1;
             background-image: url("../img/discount-cart.png"), ;
             background-repeat: no-repeat;
-            background-position: 100% 300%; 
-            background-size: 45%;
+            background-attachment: scroll;
+            background-position: 109% -70px; 
+            background-size: 50% 100%;
         }
         .jumbo-gifts {
             background-color: #e7eaf1;
             background-image: url("../img/gtx-760.png");
             background-repeat: no-repeat;
-            background-position: 120% 80%; 
-            background-size: 60%;
+            background-attachment: scroll;
+            background-position: 140% -50px; 
+            background-size: 60% 120%;
         }
     }
 }
 
 .recommended {
-//    margin: 40px 0 25px 0;
     h2 {
         color: #718097;
         text-transform: uppercase;
         font-size: 2.60rem;
         font-family: "Proxima Nova Bold";
         margin-bottom: 40px;
+        text-shadow: 1px 0 1px #98243b;
     }
     .items {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 25px; 
         .item-card {
-            box-shadow: 0 0 3px grey;
+            box-shadow: 0 0 3px #e1e1e1;
             background: #fff;
-            width: 19%;
             border-radius: 10px;
-            max-height: 445px;
+            border: 1px solid #e1e1e1;
             .card-head {
                 padding: 15px;
-                min-height: 270px;
+                max-height: 270px;
             }
             .discount-bage {
                 color: white;
@@ -395,41 +397,44 @@ img {
             }
             .stars {
                 padding: 5px 15px;
-                box-shadow: 0 0 3px grey;
+                border-bottom: 0.4px solid #e1e1e1;
+                border-top: 0.4px solid #e1e1e1;
                 justify-content: space-between;
+                align-items: flex-end;
                 font-size: 0.725rem;
                 color: rgb(204, 204, 204);
+                min-height: 50px;
                 span {
                     color: #000;  
-                    font-size: 1rem;
+                    font-size: 1.2rem;
                 }
             }
             .price {
                 display: flex;
-                padding: 5px 20px;
+                padding: 5px 15px;
                 justify-content: space-between;
                 align-items: center;
                 text-align: center;
                 .price-info {
-                    width: 40%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-around;
+                    justify-content: center;
                     align-items: center;
-                    min-height: 110px;
+                    height: 120px;
                     .before{
                         color: #009ae2;
                         text-decoration: line-through;
-                        font-size: 1.2rem;
+                        margin-bottom: 10px;
                     }
                     .now {
                         color: #636363;
-                        font-size: 1.5rem;
+                        font-size: 1.2rem;
                         font-family: 'Proxima Nova Bold';
+                        margin-bottom: 10px;
                     }
                     .discounted {
                         background: #009ae2;
-                        font-size: 1.4rem;
+                        font-size: 1.0rem;
                         color: #fff; 
                         padding: 0 5px;
                     }
@@ -439,14 +444,13 @@ img {
                     }
                 }
                 .item-info {
-                    padding: 5px 0;
                     display: flex;
                     flex-direction: column;
                     a {
-                        text-decoration: none;
                         font-size: 0.8rem;
                     }
                     .addtocard {
+                        text-decoration: none;
                         max-height: 40px;
                         display: flex;
                         justify-content: space-around;
@@ -464,6 +468,7 @@ img {
                         display: inline-block;
                         color: #009ae2;
                         text-align: right;
+                        text-decoration: underline;
                     }
                 }
             }
@@ -477,28 +482,60 @@ img {
     background: #150942;
     color: #fff;
     h2 {
-        font-size: 2.60rem;
         font-family: "Proxima Nova Bold";
         text-transform: uppercase;
         margin-bottom: 30px;
     }
     .partners-slider {
-        justify-content: space-between;
+        display: flex;
+        justify-content: space-around;
+        max-width: 100%;
     }
-    .partner-logo {
+    a {
         border-radius: 15px;
         background: #fff;
-        padding: 45px 45px 65px;
+//        padding: 45px;
         width: 18.5%;
         display: flex;
         align-items: center;
         justify-content: center;
-        
+        filter: grayscale(100%);
+        &:hover {
+            filter: grayscale(0%);
+        }
+    }
+    
+    @media screen and (min-width: 768px) {
+        padding-top: 55px;
+        padding-bottom: 60px;
+        background: #150942;
+        color: #fff;
+        h2 {
+            font-family: "Proxima Nova Bold";
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .partners-slider {
+            display: flex;
+            justify-content: space-between;
+        }
+        a {
+            border-radius: 15px;
+            background: #fff;
+            padding: 45px;
+            width: 18.5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            &:hover {
+                filter: grayscale(0%);
+            }
+        }
     }
 }
 
 .promotions {
-
     background: #150942;
     color: #fff;
     h2 {
@@ -508,94 +545,108 @@ img {
         margin-bottom: 20px;
     }
 
-    .raiting {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        width: 217px;
-        color: #fff;
-    }
     .promo-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .promo-column {
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 32fr 55fr 43fr;
+        grid-template-rows: repeat(2, 190px);
+        grid-gap: 25px;
     }
     .promo-box {
         border-radius: 15px;
-    }
-    .promo-1 {
-        flex: 1.1;
-        align-items: flex-end; 
-        margin-right: 30px;
-        background: #27ae61;
+        padding: 15px;
         img {
             display: block;
-            z-index: 3;
             position: relative;
-            top: -10%;
-            left: 10%;
+        }
+    }
+
+    .raiting {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        p {
+            font-size: 0.55em;
+        }
+        .star {
+            justify-content: space-between;
+            width: 120px;
+            color: rgb(204, 204, 204);
+        }
+        .item-description {
+            width: 200px;
+            margin-top: 15px;
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+    }
+    .promo-1 {
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        background: #27ae61;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1fr 1fr;
+        .raiting {
+            align-self: flex-start;
+            min-height: 80px;
+        }
+        &> img {
+            top: -30%;
+            height: 120%;
+            width: 150%;
         }
         
     }
+
     .promo-2 {
-        flex: 1;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
         background: #368f8d;
-        margin-bottom: 30px;
-        align-items: flex-end; 
-        img {
-            display: block;
-            z-index: 3;
-            position: relative;
-            height: 120%;
-            top: -5%;
+        display: flex;
+        .raiting {
+            align-self: flex-end;
+        }
+        &>img {
+            height: 130%;
+            top: -10%;
         }
     }
     .promo-3 {
-        flex: 1;
-        align-items: flex-end; 
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
         background: #355482;
-        img {
-            display: block;
-            z-index: 3;
-            position: relative;
-            height: 110%;
-            top: -5%;
-            left: 0%;
+        display: flex;
+        &> img {
+            height: 140%;
+            top: -20%;
+        }
+        .raiting {
+            align-self: flex-end;
         }
     }
     .promo-4 {
-        margin-left: 30px;
-        flex: 1.5;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
         background: #ff526b;
-        justify-content: right;
-        img {
-            display: block;
-            z-index: 3;
-            position: relative;
-            //height: 50%;
-            width: 80%;
-            top: -10%;
-            left: 10%;
+        display: flex;
+        flex-flow: column;
+        .raiting {
+            align-self: flex-start;
         }
+        &>img {
+            top: -10%;
+         }
     }
-    .item-description {
-        font-size: 1rem;
-        color: rgb(204, 204, 204);
-        line-height: 1.25;
-    }
-    .star {
-        justify-content: space-between;
-        font-size: 0.725rem;
-        width: 100px;
-        color: rgb(204, 204, 204);
 
-    }
 
 }
 
@@ -703,20 +754,20 @@ img {
 }
 
 .our-shops {
-    margin: 40px 0;
     h2 {
         color: #718097;
         text-transform: uppercase;
         font-size: 2.60rem;
         font-family: "Proxima Nova Bold";
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+        text-shadow: 1px 0 1px #98243b;
     }
     .shops {
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 34px;
     }
-    .shop {
-        width: 317px
-    }
+
     .time-location {
         display: flex;
         flex-direction: column;
@@ -749,30 +800,39 @@ img {
 
 footer {
     background: #363636;
-    display: flex;
+    display: grid;
+    grid-template-columns: 40fr 37fr 44fr;
     color: #fff;
-    line-height: 1.5;
+    line-height: 1.6;
     a {
         text-decoration: none;    
         color: #fff;
     }
 
     .contacts {
-        flex: 2;
-        margin-right: 50px;
         .tel {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             a {
                 font-family: 'Proxima Nova Bold';
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
         }
         .tel-1 {
+            border-right: 1px solid;
+            border-image: linear-gradient(to bottom, #fa3579, #f24a3d) 1 100%;
+            padding-right: 25px;
             a {
-                border-right: 1px solid red;
-                
+                //border-image: linear-gradient(to bottom, #fa3579, #f24a3d) 0 0 0 100%;                
+            }
+        }                   
+        .tel-2 {
+            border-left: 1px solid;
+            padding-left: 25px;
+            border-image: linear-gradient(to bottom, #fa3579, #f24a3d) 1 100%;
+            a {
+                //border-image: linear-gradient(to bottom, #fa3579, #f24a3d) 0 0 0 100%;                
             }
         }                   
         .call-me {
@@ -783,22 +843,27 @@ footer {
             margin: 10px 0;
             border-radius: 50px;
             display: block;
-            width: 50%;
+            width: 60%;
+            text-align: center;
         }
         div p a {
             color: #0b96ca;
         }
     }
+    .menues {
+        display: flex;
+        justify-content: center;
+    }
     .menu-1 {
-        flex: 1;
     }
     .menu-2 {
-        flex: 1;
-        
+        margin-left: 20px;
     }
     .social {
-        flex: 2;
-
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
     }
     .social-icons{
         display: flex;
@@ -820,6 +885,7 @@ footer {
             text-align: left;
             border: 1px solid rgba(0,0,0,.15);
         }
+ 
         a {
             border-radius: 0 25px 25px 0;
             text-decoration: none;
@@ -834,5 +900,8 @@ footer {
             background: linear-gradient(#fa3579, #f24a3d);
             color: #fff;
         }
+    }
+    .aecadf {
+        color: #aecadf;
     }
 }

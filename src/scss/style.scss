@@ -187,17 +187,34 @@ img {
             justify-content: center;
             align-items: center;
             flex: auto;
+            border-right: 1px solid;
+            border-image: linear-gradient(to bottom, #000, #7942D5, #000) 1 100%;
+            padding-right: 25px;
+        }
+        li:nth-child(7) {
+            border-right: none;
         }
         li:first-child {
             background: linear-gradient(#fa3579, #f24a3d);
         }
         li:last-child {
+            border-right: none;
             background: #045aae;
+            font-style: italic;
+            font-family: "Proxima Nova Regular", sans-serif;
+            font-weight: normal;
         }
         .hamburger-icon {
             position: relative;
             top: 2px;
             right: 3px;
+            margin-right: 20px;
+        }
+        .search-icon {
+            position: relative;
+            top: 2px;
+            right: 3px;
+            margin-right: 10px;
         }
     }
 }
@@ -735,7 +752,7 @@ img {
     }
     .news-button {
         width: 220px;
-        padding: 5px;
+        padding: 3px;
         border-radius: 25px;
         margin: 0 auto;
         overflow: hidden;
